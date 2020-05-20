@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/api/v1.2/admin/shutdown" method="POST" resourcePath="/api/v1.2/admin/shutdown" id="7eca11c6-8384-44cf-be98-61ddc8752986" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7eca11c6-8384-44cf-be98-61ddc8752986fileName">%2Fapi%2Fv1.2%2Fadmin%2Fshutdown</con:setting>
+  </con:settings>
+  <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+  <con:dispatchConfig/>
+  <con:dispatchXPath/>
+  <con:routeScript/>
+  <con:response name="Response 1" id="227e5b76-d306-47ec-97a6-f7b35f813629" httpResponseStatus="0" dataSource="">
+    <con:settings/>
+    <con:responseContent/>
+  </con:response>
+</con:restMockAction>

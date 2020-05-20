@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="ba938264-6e63-449f-95cf-6512f416074c" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="isEnabled" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ba938264-6e63-449f-95cf-6512f416074cfileName">isEnabled</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="isEnable" id="5a1458f1-aabb-4003-9e5c-4d8465270c61">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/ldap/enable" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="isEnable" id="a91a2e0f-ec5e-40a9-adc5-5f866bee4f44" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:request/>
+        <con:originalUri>https://localhost/api/v3/ldap/enable</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="f84bf907-f0af-46aa-b77c-f4c90626ab8e" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

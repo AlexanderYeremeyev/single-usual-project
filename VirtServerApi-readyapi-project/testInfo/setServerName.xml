@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="99723f6a-5cef-40e5-827f-c47e29fff4c5" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="setServerName" searchProperties="true" timeout="0" maxResults="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="99723f6a-5cef-40e5-827f-c47e29fff4c5fileName">setServerName</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="login" id="97764e73-7449-4612-95ad-30df7e63c4e3">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/login" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="login" id="5e1170e0-dd20-4663-adda-3def7a833fef" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Client" value="ServiceV" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>https://localhost:9090</con:endpoint>
+        <con:request>{
+	"login": "${#Project#username-admin}",
+	"password" : "${#Project#password-admin}"
+}</con:request>
+        <con:originalUri>https://localhost/api/v3/users/login</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="352b9ac2-33d0-486c-8a1c-0d8f152aaba2" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="36b44b91-3274-4da8-82db-9ca491bf4e6a" name="Response SLA" disabled="true">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="4a9e96ea-0703-471a-9a9f-5c1966cce648">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>token</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>login</con:sourceStep>
+        <con:sourcePath>$['loginTicket']</con:sourcePath>
+        <con:targetType>login-token</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="setServerName" id="dae56869-21e1-4727-bea3-41414aeefc53">
+    <con:settings/>
+    <con:config service="http://localhost:9090" methodName="setServerName" resourcePath="/api/v3/info/servername" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="setServerName" id="975e16cb-df77-4252-aeaf-df2bf932f598" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="${#TestCase#login-token}"/>
+  &lt;con:entry key="Client" value="ServiceV"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8088/</con:endpoint>
+        <con:request>{
+	"friendlyName": "VirtServer-Bravo"
+}</con:request>
+        <con:originalUri>https://localhost/api/v3/info/servername</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="01db184d-1f9a-4f9f-b4e6-5c5f7be6c784" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="417f6cd3-f6b4-4793-bbf1-1862aecefe7a" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="logout" id="2f843a9a-4569-4943-8b38-6f7ebd766232">
+    <con:settings/>
+    <con:config service="http://localhost:9090" methodName="Method 1" resourcePath="/api/v3/users/logout" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="logout" id="b1f64f63-f3a8-4e28-853a-06c75acd6424" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="${#TestCase#login-token}"/>
+  &lt;con:entry key="Client" value="ServiceV"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8088/</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://localhost/api/v3/users/logout</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="3db0c54b-769b-4932-a405-1364c12cfcd4" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="16f30b52-5656-444d-9ff5-15d6e14c70f2" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>login-token</con:name>
+      <con:value>v3token-eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGUtZGF0ZSI6MTU4NzYyMzUxODA3MywiY2xpZW50IjoyLCJsb2dpbiI6InVzZXJuYW1lLWFkbWluIn0.-IaD9x4LVBMtSTX6rVcxZQUIyjev00tQX766hhxP1RY0PsRnx7fxUGPY3IxGdABHMOG6LFmk50VkEck_YIeHvQ</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>dae56869-21e1-4727-bea3-41414aeefc53</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4a9e96ea-0703-471a-9a9f-5c1966cce648</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

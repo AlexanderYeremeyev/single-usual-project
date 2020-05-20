@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/api/v3/users/delete" method="POST" resourcePath="/api/v3/users/delete" id="5fc2b4f0-c12b-4b11-ae31-143d05e16d6f" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="5fc2b4f0-c12b-4b11-ae31-143d05e16d6ffileName">%2Fapi%2Fv3%2Fusers%2Fdelete</con:setting>
+  </con:settings>
+  <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+  <con:dispatchConfig/>
+  <con:dispatchXPath/>
+  <con:routeScript/>
+  <con:response name="Response 1" id="396bbe72-aa2a-4e99-8bb5-ffb04b78a4c4" httpResponseStatus="200" dataSource="">
+    <con:settings/>
+  </con:response>
+</con:restMockAction>

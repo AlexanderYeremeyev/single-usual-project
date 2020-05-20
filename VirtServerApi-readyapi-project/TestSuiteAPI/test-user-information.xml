@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="9799e4cf-4663-456e-80fe-9748f9b26621" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="test user information" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="9799e4cf-4663-456e-80fe-9748f9b26621fileName">test-user-information</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="getSelfInformation" id="74ef3942-c698-4534-9aad-0e08bf014ab3">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/selfinformation" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getSelfInformation" id="756246a4-5a59-4bad-aa0c-96463301ab7e" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://localhost:9090</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://localhost/api/v3/users/selfinformation</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="bf06b950-8b90-43f5-9577-3fb17d09b599" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="bb1c4a45-d14f-4613-8850-99ba5002d0fb" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:username>tester</con:username>
+          <con:password>tester</con:password>
+          <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+          <con:preemptive>true</con:preemptive>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:authType>Preemptive</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="getUsersList" id="86e93d6f-beeb-4476-a0ea-74df1c460bd6">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/userslist" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getUsersList" id="c140151d-e691-4811-ae83-17cc57fdf58e" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://localhost:9090</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/api/v2/users/userslist</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="40f995ac-d130-4336-8109-df6dcf2c9e1c" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="f5d3c827-c561-463c-a22d-3fe8705039fb" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:username>alex</con:username>
+          <con:password>alex</con:password>
+          <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+          <con:preemptive>true</con:preemptive>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:authType>Preemptive</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="edea42e4-1459-4358-8a5a-b6e9d38e3a43">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

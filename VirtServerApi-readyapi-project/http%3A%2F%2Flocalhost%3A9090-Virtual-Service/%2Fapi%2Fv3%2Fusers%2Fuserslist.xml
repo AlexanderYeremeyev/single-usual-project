@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/api/v3/users/userslist" method="GET" resourcePath="/api/v3/users/userslist" id="69e54c88-fb2e-497f-8d06-f7053a313568" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="69e54c88-fb2e-497f-8d06-f7053a313568fileName">%2Fapi%2Fv3%2Fusers%2Fuserslist</con:setting>
+  </con:settings>
+  <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+  <con:dispatchConfig/>
+  <con:dispatchXPath/>
+  <con:routeScript/>
+  <con:response name="Response 1" id="d1d63321-dbbd-4544-8579-f9ad81e92c64" httpResponseStatus="200" dataSource="">
+    <con:settings/>
+    <con:responseContent/>
+  </con:response>
+  <con:response name="Response 2" id="3bdaa24f-2908-4127-8a54-5ea25c040053" httpResponseStatus="200" mediaType="application/json" dataSource="">
+    <con:settings/>
+    <con:responseContent/>
+  </con:response>
+</con:restMockAction>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="431f2050-3c01-4953-90be-8f1f7fce1bbf" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:9090" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="431f2050-3c01-4953-90be-8f1f7fce1bbffileName">http%3A%2F%2Flocalhost%3A9090</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart=""/>
+  <con:endpoints>
+    <con:endpoint>http://localhost:8088/</con:endpoint>
+    <con:endpoint>https://40.117.32.138:9090</con:endpoint>
+    <con:endpoint>https://localhost:9090</con:endpoint>
+  </con:endpoints>
+  <con:environmentSpec>
+    <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:interface>

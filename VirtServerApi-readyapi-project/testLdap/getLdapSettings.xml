@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="9f24d82a-6db2-43cc-b393-bc28eaa2d159" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="getLdapSettings" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="9f24d82a-6db2-43cc-b393-bc28eaa2d159fileName">getLdapSettings</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="login" id="798b00cf-090f-4c63-a829-e69011d8a613">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/login" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="login" id="5e1170e0-dd20-4663-adda-3def7a833fef" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8088/</con:endpoint>
+        <con:request>{
+	"login": "alexander",
+	"password" : "alexander"
+}</con:request>
+        <con:originalUri>https://localhost/api/v3/users/login</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="cdeb47a8-62ee-4a3c-99ed-e265f39ec27a" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="22c27811-7ff0-4fad-87ea-972e40d424b7" name="Response SLA" disabled="true">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="9ca6e9fc-9806-4e4d-a726-05f29ec86cbf">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>token</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>login</con:sourceStep>
+        <con:sourcePath>$['loginTicket']</con:sourcePath>
+        <con:targetType>login-token</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="getLdapSettings" id="87c14a97-a212-4e40-8436-e23b911d8812">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/ldap/settings" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getLdapSettings" id="c0e231bd-ceb4-488f-9248-939fcda701c5" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="${#TestCase#login-token}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:request/>
+        <con:originalUri>https://localhost/api/v3/ldap/settings</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="7ae8a34d-02ff-4b10-8d2d-0b7a213af251" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="b58d4629-8cad-453a-acb7-965107904896" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="logout" id="5c09f433-d655-40c5-9e12-2b13076aa312">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/logout" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="logout" id="74fef98f-d085-4238-b700-8832b6923cc4" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="${#TestCase#login-token}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8088/</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://localhost/api/v3/users/logout</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="da6af825-4225-4d4a-a95f-f71e93f0b2f6" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="0a678787-f13f-4999-9ba7-fad9dc221233" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>login-token</con:name>
+      <con:value>v3token-eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGUtZGF0ZSI6MTU4NDU5NjY1MDk2MywibG9naW4iOiJhbGV4YW5kZXIifQ.deXv5VxxZFv5BdkDF9NGk_DlugjXaYZsWnSlvQ06TCemtVADeDIXMf1FL7bhjX_azId_nAHL4dIO-rmgADXvKg</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+</con:testCase>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="64448af5-1307-4dcd-a1d2-e643bbea154d" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="getServerName" searchProperties="true" timeout="0" maxResults="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="64448af5-1307-4dcd-a1d2-e643bbea154dfileName">getServerName</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="getServerName" id="9808e869-38db-4851-9e08-b056f0eca8f8">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/info/servername" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getServerName" id="ab1161ca-97b3-4d53-b814-89f88cdf5bd3" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://localhost:9090</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://localhost/api/v3/info/servername</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="83a50181-2c32-4a54-9f2b-43520aabb2f3" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="8f86428c-cdcb-4d51-8b78-85259863012c" name="Response SLA" disabled="true">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

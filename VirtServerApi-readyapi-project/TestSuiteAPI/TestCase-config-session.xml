@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="e967915d-b5b9-40fc-8114-b23b6dcaaf44" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase-config-session" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="e967915d-b5b9-40fc-8114-b23b6dcaaf44fileName">TestCase-config-session</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="login" id="23ecbf80-2505-4127-a29a-f218c2b9caba">
+    <con:settings/>
+    <con:config service="http://localhost:9090" methodName="Method 1" resourcePath="/api/v3/users/login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="login" id="90227150-491f-44e1-a86e-5bd2fd2ab329" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Client" value="ServiceV" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://localhost:9090/</con:endpoint>
+        <con:request>{
+	"login": "alexander",
+	"password" : "alexander1"
+}</con:request>
+        <con:originalUri>http://localhost/api/v3/users/login</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="7526311e-4f46-494d-afdc-f8da6cde7ac0" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="486ef31b-eeda-4e1a-a74a-3e9c51f62f38" name="Response SLA">
+          <con:configuration>
+            <SLA>500</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="26c5ae21-fee7-4227-b532-3954966387b8">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>123</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>login</con:sourceStep>
+        <con:sourcePath>$['loginTicket']</con:sourcePath>
+        <con:targetType>loginToken</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>XPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="SaveLoginTicket" id="9bcc49fd-8251-48ff-8676-254519051971" disabled="true">
+    <con:settings/>
+    <con:config>
+      <script>log.info "Start saving login token"
+def headerValue = testRunner.testCase.getTestStepByName("login").httpRequest.response.responseHeaders["Authorization"]
+log.info headerValue
+String tokenString = headerValue;
+tokenString = tokenString.substring(1, tokenString.length() - 1);
+log.info tokenString
+
+// Save the value to a test case property
+testRunner.testCase.setPropertyValue( "loginToken", tokenString)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="delay" name="Delay" id="2e932f38-ab02-42c0-b67a-96377ba1301f">
+    <con:settings/>
+    <con:config>
+      <delay>5000</delay>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="getUsersList" id="4c97d212-231f-454b-a03b-86ec95c32e33">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/userslist" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getUsersList" id="c140151d-e691-4811-ae83-17cc57fdf58e" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="${#TestCase#loginToken}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>https://localhost:9090</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/api/v2/users/userslist</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="692baf23-c7f4-449c-9fe9-4ee3353bfbab" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="84475701-d5dd-467a-a182-e37de2aed031" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:username>alex09</con:username>
+          <con:password>alex09</con:password>
+          <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+          <con:preemptive>true</con:preemptive>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="edea42e4-1459-4358-8a5a-b6e9d38e3a43">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request" id="8673a8e7-9039-4ed3-9917-d4ec3b7faf49">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v1.2/analytics" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="0f373762-8ef9-47d0-a894-ef11bbf9bd97" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Client" value="ServiceV" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>https://localhost:9090</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://localhost/api/v1.2/analytics</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="49d24433-5d94-4ca4-8b64-30c0106ace88" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="480a320b-a11d-4406-aa14-e58efff63758" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:username>alex09</con:username>
+          <con:password>alex09</con:password>
+          <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+          <con:preemptive>true</con:preemptive>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>loginToken</con:name>
+      <con:value>v3token-eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGUtZGF0ZSI6MTU4MDk3OTY5MDQzNCwibG9naW4iOiJhbGV4YW5kZXIiLCJleHAiOjE1ODA5ODAxNzB9.oPbAVt9hVAM5f0_NwS-DOQxGNzEmMfpSSt_Jrf6tt6JJ-3X0jPn9nFE3rwP_ZBSDOXj03aV4i25WlmU3N8A1Gw</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>9bcc49fd-8251-48ff-8676-254519051971</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>26c5ae21-fee7-4227-b532-3954966387b8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>23ecbf80-2505-4127-a29a-f218c2b9caba</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>2e932f38-ab02-42c0-b67a-96377ba1301f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

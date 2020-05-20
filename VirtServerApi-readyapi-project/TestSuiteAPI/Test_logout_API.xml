@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="b4c75194-4414-47c4-91b9-40f976d61074" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Test_logout_API" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="b4c75194-4414-47c4-91b9-40f976d61074fileName">Test_logout_API</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="login_API" id="323b4615-7ef1-4a68-864b-f27d6e23359c">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/login" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="login_API" id="5e1170e0-dd20-4663-adda-3def7a833fef" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Client" value="ServiceV" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>https://localhost:9090</con:endpoint>
+        <con:request>{
+	"login": "${#Project#username-admin}",
+	"password" : "${#Project#password-admin}"
+}</con:request>
+        <con:originalUri>https://40.117.32.138/api/v3/users/login</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="e63c8238-9516-4b14-b4f9-0e15e9509913" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="04895b5b-d20c-4782-a19d-062bbe250e51" name="Response SLA">
+          <con:configuration>
+            <SLA>2000</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="save token" id="5a38faa7-79b8-437d-a1f9-5c7a77822c33">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>token</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>login_API</con:sourceStep>
+        <con:sourcePath>$['loginTicket']</con:sourcePath>
+        <con:targetType>test-case-token</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="getUsersList_API" id="5d4ab34e-ffed-4b15-8036-61980920d7ac">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/userslist" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getUsersList_API" id="c140151d-e691-4811-ae83-17cc57fdf58e" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="${#TestCase#test-case-token}"/>
+  &lt;con:entry key="Client" value="ServiceV"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://localhost:9090</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/api/v2/users/userslist</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="b2c18212-979b-4353-9994-ba0e8f651795" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="4d3daf5b-f609-4313-83ce-564bfbd7bd7b" name="Response SLA">
+          <con:configuration>
+            <SLA>2000</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="edea42e4-1459-4358-8a5a-b6e9d38e3a43">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="logout" id="8f6f5100-d87f-4dd8-a1ba-3c7d71d8bdff">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/logout" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="logout" id="74fef98f-d085-4238-b700-8832b6923cc4" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="${#TestCase#test-case-token}"/>
+  &lt;con:entry key="Client" value="ServiceV"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://localhost:9090</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://40.117.32.138/api/v3/users/logout</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="67ce7ac4-ecd1-4c8c-af23-9b89409a798e" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="32826318-9660-4627-87bd-48622d75cfda" name="Response SLA">
+          <con:configuration>
+            <SLA>2000</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="getUsersList_API FAILED" id="c2794fcf-f992-49df-a2b2-56d8388a520c">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/userslist" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getUsersList_API FAILED" id="c140151d-e691-4811-ae83-17cc57fdf58e" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="${#TestCase#test-case-token}"/>
+  &lt;con:entry key="Client" value="ServiceV"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://localhost:9090</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/api/v2/users/userslist</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="b2c18212-979b-4353-9994-ba0e8f651795" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>401</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="4d3daf5b-f609-4313-83ce-564bfbd7bd7b" name="Response SLA">
+          <con:configuration>
+            <SLA>2000</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="edea42e4-1459-4358-8a5a-b6e9d38e3a43">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>test-case-token</con:name>
+      <con:value>v3token-eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGUtZGF0ZSI6MTU4MjE4NzYyODMxNCwibG9naW4iOiJ1c2VybmFtZS1hZG1pbiIsImV4cCI6MTU4MjIxNjQyOH0.K1ZWHjqK8nGAI_C74WnQP71tNBQhxMTUzeK0Ch9yW0oY0bDxt6yRZjzGdsTn1sJqL8BlvjQYKYlPtAnJSmpFqA</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>8f6f5100-d87f-4dd8-a1ba-3c7d71d8bdff</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

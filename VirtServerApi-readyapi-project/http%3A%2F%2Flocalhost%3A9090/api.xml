@@ -1,0 +1,1009 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="api" path="/api" id="3cbe6e11-1cb6-481a-b093-0f7c60a6d21e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="3cbe6e11-1cb6-481a-b093-0f7c60a6d21efileName">api</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:resource name="v3" path="v3" id="874b64a9-1fda-4ee3-9d76-9108b3cf8a68">
+    <con:settings/>
+    <con:parameters/>
+    <con:resource name="users" path="users" id="9339c582-f69b-43a3-b722-8db51e445f22">
+      <con:settings/>
+      <con:parameters/>
+      <con:resource name="userslist" path="userslist" id="71cf903c-87ae-46f9-9d25-e0880080309c">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="0087d074-4cfc-4b01-9f03-313b572d63d3" method="GET">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>200 0</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="REQUEST">
+            <con:mediaType>application/json</con:mediaType>
+            <con:params/>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element>Response</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>text/html; charset=UTF-8</con:mediaType>
+            <con:status>502</con:status>
+            <con:params/>
+            <con:element>html</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>text/html;charset=iso-8859-1</con:mediaType>
+            <con:status>401 403</con:status>
+            <con:params/>
+            <con:element>html</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>500</con:status>
+            <con:params/>
+            <con:element xmlns:user="http://localhost/api/v2/users/userslist">user:Fault</con:element>
+          </con:representation>
+          <con:request name="Request 1" id="c140151d-e691-4811-ae83-17cc57fdf58e" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/api/v2/users/userslist</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="edea42e4-1459-4358-8a5a-b6e9d38e3a43">
+                <con:authProfile>No Authorization</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:request>
+          <con:environmentSpec>
+            <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:method>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:resource>
+      <con:resource name="selfinformation" path="selfinformation" id="6551a6d1-12bc-4c0f-88be-963ef0bc07a9">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="d8514caf-a7ba-4a40-a164-93f4365f3f8c" method="GET">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="FAULT">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>404 500</con:status>
+            <con:params/>
+            <con:element xmlns:sel="https://localhost/api/v3/users/selfinformation">sel:Fault</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>text/html;charset=iso-8859-1</con:mediaType>
+            <con:status>401</con:status>
+            <con:params/>
+            <con:element>html</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:sel="https://localhost/api/v3/users/selfinformation">sel:Response</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>0</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:request name="Request 1" id="756246a4-5a59-4bad-aa0c-96463301ab7e" mediaType="application/json">
+            <con:settings/>
+            <con:endpoint>https://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:request>
+          <con:environmentSpec>
+            <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:method>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:resource>
+      <con:resource name="add" path="add" id="64b227c1-ab79-4d38-a852-b2c0130465a7">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="ccfd213f-6d97-447c-a9c4-8e2a0d4136ad" method="POST">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="FAULT">
+            <con:mediaType>text/html;charset=iso-8859-1</con:mediaType>
+            <con:status>401</con:status>
+            <con:params/>
+            <con:element>html</con:element>
+          </con:representation>
+          <con:representation type="REQUEST">
+            <con:mediaType>application/json</con:mediaType>
+            <con:params/>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>500</con:status>
+            <con:params/>
+            <con:element xmlns:add="https://localhost/api/v3/users/add">add:Fault</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>text/plain</con:mediaType>
+            <con:status>400 436</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element>Response</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>0</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:request name="Request 1" id="93efb33e-0929-480c-b356-ce5d8b0341a4" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:request>
+          <con:environmentSpec>
+            <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:method>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:resource>
+      <con:resource name="delete" path="delete" id="07d73f55-9b43-4bc9-830a-41bd16c5c0d1">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="b34b1418-252e-43db-a816-5809e36262fe" method="POST">
+          <con:settings/>
+          <con:parameters/>
+          <con:request name="Request 1" id="b0e38a4a-9818-4803-b8a8-bbd135007dd6" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:request>
+          <con:environmentSpec>
+            <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:method>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:resource>
+      <con:resource name="login" path="login" id="53644a7f-fc58-4327-a928-cd69d776c139">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="20d3b453-3b64-4aa9-9e75-d728e021dc3c" method="POST">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="REQUEST">
+            <con:mediaType>application/json</con:mediaType>
+            <con:params/>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>0</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:log="http://localhost/api/v3/users/login">log:Response</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>text/html;charset=iso-8859-1</con:mediaType>
+            <con:status>400 401</con:status>
+            <con:params/>
+            <con:element>html</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>application/octet-stream</con:mediaType>
+            <con:status>420 430</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>0</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:request name="login_API" id="5e1170e0-dd20-4663-adda-3def7a833fef" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request>{
+	"login": "alexander",
+	"password" : "alexander1"
+}</con:request>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:request>
+          <con:environmentSpec>
+            <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:method>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:resource>
+      <con:resource name="logout" path="logout" id="4cf89148-c7e2-45e7-ab90-447ebf321580">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="c8272c83-9671-40b4-8e5b-cc06417353a6" method="POST">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="FAULT">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>405</con:status>
+            <con:params/>
+            <con:element xmlns:log="https://40.117.32.138/api/v3/users/logout">log:Fault</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="REQUEST">
+            <con:mediaType>application/json</con:mediaType>
+            <con:params/>
+          </con:representation>
+          <con:request name="logoutAPI" id="74fef98f-d085-4238-b700-8832b6923cc4" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:request>
+          <con:environmentSpec>
+            <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:method>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:resource>
+      <con:environmentSpec>
+        <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="config" path="config" id="2dfbb42c-8d32-4123-88cb-b987af3e4581">
+      <con:settings/>
+      <con:parameters/>
+      <con:resource name="session" path="session" id="baa173e0-e6e2-4a4d-9c61-4ef74b43946d">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="getOptionsMethod" id="9b512cb2-49ac-41e4-91a3-0b574cf118f9" method="GET">
+          <con:settings/>
+          <con:parameters/>
+          <con:request name="Request 1" id="f247ee63-503a-4c99-866e-30d6c69855d1" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:request>
+        </con:method>
+        <con:method name="setTimeoutParameters" id="f22e8880-f1be-41c2-8876-eb4bd352abf9" method="PUT">
+          <con:settings/>
+          <con:parameters>
+            <con:parameter>
+              <con:name>enableSessionTimeout</con:name>
+              <con:value>true</con:value>
+              <con:style>QUERY</con:style>
+              <con:default>true</con:default>
+            </con:parameter>
+            <con:parameter required="true">
+              <con:name>sessionTimeoutValue</con:name>
+              <con:value/>
+              <con:style>QUERY</con:style>
+              <con:default/>
+            </con:parameter>
+          </con:parameters>
+          <con:representation type="REQUEST">
+            <con:mediaType>application/json</con:mediaType>
+            <con:params/>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>401</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:ses="https://localhost/api/v3/config/session">ses:Response</con:element>
+          </con:representation>
+          <con:request name="Request 1" id="240c9fb9-a8bf-449d-b419-4e3e5d933f2a" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://localhost/api/v3/config/session</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="sessionTimeoutValue" value="789"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>enableSessionTimeout</con:entry>
+              <con:entry>sessionTimeoutValue</con:entry>
+            </con:parameterOrder>
+          </con:request>
+        </con:method>
+      </con:resource>
+    </con:resource>
+    <con:resource name="info" path="info" id="5c776347-b5e9-47aa-ac6f-45bf5dadcc7a">
+      <con:settings/>
+      <con:parameters/>
+      <con:resource name="description" path="description" id="3f4a493f-2971-496a-b468-a13a93a3d4b2">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="490c238a-bddc-4353-bd92-854f8b41f6f8" method="GET">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="FAULT">
+            <con:mediaType>application/octet-stream</con:mediaType>
+            <con:status>500</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:des="https://localhost/api/v3/info/description">des:Response</con:element>
+          </con:representation>
+          <con:request name="getServerDescription" id="66664459-1982-4c85-bfd4-c50f3d901139" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://localhost/api/v3/info/description</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:request>
+        </con:method>
+      </con:resource>
+      <con:resource name="about" path="about" id="31e0de69-d23b-4c56-a544-3625455cfce4">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="ee0b90df-c4d6-4bbd-95f0-c5bb42e64ee2" method="GET">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:abo="https://localhost/api/v3/info/about">abo:Response</con:element>
+          </con:representation>
+          <con:request name="getAboutInformation" id="7c9a8887-0de4-4c6c-880a-25ce6ad191e8" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://localhost/api/v3/info/about</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:request>
+        </con:method>
+      </con:resource>
+      <con:resource name="servername" path="servername" id="3e7ab084-0525-4055-b6b3-fa7a0d35ada8">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="f3c5432f-18a0-4816-be72-332077555bfd" method="GET">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:ser="https://localhost/api/v3/info/servername">ser:Response</con:element>
+          </con:representation>
+          <con:request name="Request 1" id="ab1161ca-97b3-4d53-b814-89f88cdf5bd3" mediaType="application/json">
+            <con:settings/>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:request>
+        </con:method>
+        <con:method name="setServerName" id="7f60cf11-f29d-4d7c-b377-38f351cb6996" method="POST">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="FAULT">
+            <con:mediaType>application/octet-stream</con:mediaType>
+            <con:status>401 400</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="REQUEST">
+            <con:mediaType>application/json</con:mediaType>
+            <con:params/>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:ser="https://localhost/api/v3/info/servername">ser:Response</con:element>
+          </con:representation>
+          <con:request name="Request 1" id="8a0ead33-6a52-4b67-8be9-69d9347bbf48" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request>{
+	"friendlyName": "my virt server YO!!!"
+}</con:request>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:request>
+        </con:method>
+      </con:resource>
+    </con:resource>
+    <con:resource name="ldap" path="ldap" id="e446900c-6004-4952-bc7a-9177aa45118a">
+      <con:settings/>
+      <con:parameters/>
+      <con:resource name="settings" path="settings" id="54c49283-e653-4d57-ba67-48ba4a8724d1">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="391b1b68-6d9a-4b33-9288-79f110c9932b" method="GET">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:set="https://localhost/api/v3/ldap/settings">set:Response</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>application/octet-stream</con:mediaType>
+            <con:status>401</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:request name="getLdapSettings" id="c0e231bd-ceb4-488f-9248-939fcda701c5" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:request>
+        </con:method>
+        <con:method name="Method 2" id="cb616495-7c41-4b45-aac0-7803213c5119" method="POST">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>204</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="REQUEST">
+            <con:mediaType>application/json</con:mediaType>
+            <con:params/>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:set="https://localhost/api/v3/ldap/settings">set:Response</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>application/octet-stream</con:mediaType>
+            <con:status>401</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:request name="setLdapSettings" id="c5f62d51-3e7a-444e-b90e-4b6a8660222c" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:request>
+        </con:method>
+      </con:resource>
+      <con:resource name="check" path="check" id="970bb347-cb97-4ae7-95f4-8a5f027bba3e">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="770bcee6-18b0-4d81-bfe5-3c78289b6c61" method="POST">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="FAULT">
+            <con:mediaType>application/octet-stream</con:mediaType>
+            <con:status>401 400</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="REQUEST">
+            <con:mediaType>application/json</con:mediaType>
+            <con:params/>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:test="https://localhost/api/v3/ldap/test">test:Response</con:element>
+          </con:representation>
+          <con:request name="testLdapCredentials" id="664cdcdf-53ee-49ab-80d1-2960b38885be" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:request>
+        </con:method>
+      </con:resource>
+      <con:resource name="enable" path="enable" id="b74cd98e-7b70-4a81-9d37-f5ebd03daf66">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="91b45e21-55c7-4ce4-b51d-1bbcccc69bd3" method="GET">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:enab="https://localhost/api/v3/ldap/enable">enab:Response</con:element>
+          </con:representation>
+          <con:request name="isEnable" id="a91a2e0f-ec5e-40a9-adc5-5f866bee4f44" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8088/</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:request>
+        </con:method>
+      </con:resource>
+    </con:resource>
+    <con:environmentSpec>
+      <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:resource>
+  <con:resource name="v1.2" path="v1.2" id="3119501d-4af3-4659-bf00-ba880274fd33">
+    <con:settings/>
+    <con:parameters/>
+    <con:resource name="admin" path="admin" id="5af3c3b9-5bbf-4823-a8f5-c220e7c10a1c">
+      <con:settings/>
+      <con:parameters/>
+      <con:resource name="shutdown" path="shutdown" id="9c51d4f1-6cd4-454f-a7cb-3120d68ce400">
+        <con:settings/>
+        <con:parameters/>
+        <con:method name="Method 1" id="1f021fd6-86da-4cd5-a358-743c5b76c299" method="POST">
+          <con:settings/>
+          <con:parameters/>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>0 200</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="REQUEST">
+            <con:mediaType>application/json</con:mediaType>
+            <con:params/>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>application/octet-stream</con:mediaType>
+            <con:status>403</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>text/html;charset=iso-8859-1</con:mediaType>
+            <con:status>403</con:status>
+            <con:params/>
+            <con:element>html</con:element>
+          </con:representation>
+          <con:request name="Request 1" id="011cc7e1-70c5-4890-915c-f4abc7dd1c76" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://localhost:9090</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/api/v1.2/admin/shutdown</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="edea42e4-1459-4358-8a5a-b6e9d38e3a43">
+                <con:authProfile>No Authorization</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:request>
+          <con:environmentSpec>
+            <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:method>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:resource>
+      <con:method name="Method 1" id="8f3e9ec8-9e55-437a-ad39-d75f4def9c96" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:request name="Request 1" id="8b4a5995-6ddc-4185-8d0f-9056eba952c9" mediaType="application/json" postQueryString="false">
+          <con:settings/>
+          <con:endpoint>http://localhost:9090</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="edea42e4-1459-4358-8a5a-b6e9d38e3a43">
+              <con:authProfile>No Authorization</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="analytics" path="analytics" id="7a914bf9-922e-4416-943d-d1d26cde5137">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Method 1" id="047dc935-c007-4bae-808f-086f6e11d830" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="FAULT">
+          <con:mediaType>application/octet-stream</con:mediaType>
+          <con:status>403 420</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:anal="https://localhost/api/v1.2/analytics">anal:Response</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>0</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>text/html;charset=iso-8859-1</con:mediaType>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>html</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>text/plain</con:mediaType>
+          <con:status>420 430</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="0f373762-8ef9-47d0-a894-ef11bbf9bd97" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Client" value="ServiceV" xmlns="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>https://localhost:9090</con:endpoint>
+          <con:request/>
+          <con:originalUri>https://localhost/api/v1.2/analytics</con:originalUri>
+          <con:credentials>
+            <con:username>alex09</con:username>
+            <con:password>alex09</con:password>
+            <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+            <con:preemptive>true</con:preemptive>
+            <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+            <con:authType>Preemptive</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:environmentSpec>
+      <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:resource>
+  <con:environmentSpec>
+    <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="88467924-1998-4e9e-b5d2-a4cce12a8059" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="create-temp-users" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="88467924-1998-4e9e-b5d2-a4cce12a8059fileName">create-temp-users</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="login" id="ac0d7939-820a-46ce-a587-8398c3eaf537">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/login" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="login" id="5e1170e0-dd20-4663-adda-3def7a833fef" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8088/</con:endpoint>
+        <con:request>{
+	"login": "${#Project#username-admin}",
+	"password" : "${#Project#password-admin}"
+}</con:request>
+        <con:originalUri>https://localhost/api/v3/users/login</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="44d2900a-139f-4163-81b8-c2fb1c4e6404" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="1d9b2034-72d4-469b-80a5-7af6e67e0907" name="Response SLA" disabled="true">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="f3bec004-a462-405a-89e3-e73bff28ac5a">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>token</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>login</con:sourceStep>
+        <con:sourcePath>$['loginTicket']</con:sourcePath>
+        <con:targetType>admin-token</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="DataSource" id="9ec00d4d-9b0c-460b-a878-42a1f8d0a42f">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>10</generatedDataCount>
+          <generatorsTotalNumber>2</generatorsTotalNumber>
+          <lastSelectedProperty>1</lastSelectedProperty>
+          <GeneratorType0>CITY</GeneratorType0>
+          <PropertyName0>Form editor is not applicable for this request</PropertyName0>
+          <repetitionCountForm98af7f7807ed4b99a0bc67e67f0280b3editor98af7f7807ed4b99a0bc67e67f0280b3is98af7f7807ed4b99a0bc67e67f0280b3not98af7f7807ed4b99a0bc67e67f0280b3applicable98af7f7807ed4b99a0bc67e67f0280b3for98af7f7807ed4b99a0bc67e67f0280b3this98af7f7807ed4b99a0bc67e67f0280b3request>0</repetitionCountForm98af7f7807ed4b99a0bc67e67f0280b3editor98af7f7807ed4b99a0bc67e67f0280b3is98af7f7807ed4b99a0bc67e67f0280b3not98af7f7807ed4b99a0bc67e67f0280b3applicable98af7f7807ed4b99a0bc67e67f0280b3for98af7f7807ed4b99a0bc67e67f0280b3this98af7f7807ed4b99a0bc67e67f0280b3request>
+          <repeatValuesForm98af7f7807ed4b99a0bc67e67f0280b3editor98af7f7807ed4b99a0bc67e67f0280b3is98af7f7807ed4b99a0bc67e67f0280b3not98af7f7807ed4b99a0bc67e67f0280b3applicable98af7f7807ed4b99a0bc67e67f0280b3for98af7f7807ed4b99a0bc67e67f0280b3this98af7f7807ed4b99a0bc67e67f0280b3request>false</repeatValuesForm98af7f7807ed4b99a0bc67e67f0280b3editor98af7f7807ed4b99a0bc67e67f0280b3is98af7f7807ed4b99a0bc67e67f0280b3not98af7f7807ed4b99a0bc67e67f0280b3applicable98af7f7807ed4b99a0bc67e67f0280b3for98af7f7807ed4b99a0bc67e67f0280b3this98af7f7807ed4b99a0bc67e67f0280b3request>
+          <GeneratorType1>CITY</GeneratorType1>
+          <PropertyName1>login</PropertyName1>
+          <repetitionCountlogin>0</repetitionCountlogin>
+          <repeatValueslogin>false</repeatValueslogin>
+          <escapeSpaceSequence>98af7f7807ed4b99a0bc67e67f0280b3</escapeSpaceSequence>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>Form editor is not applicable for this request</con:property>
+      <con:property>login</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="create user" id="b2456e9e-6dcb-47ea-9581-201bc5bf431a">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/add" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="create user" id="93efb33e-0929-480c-b356-ce5d8b0341a4" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="${#TestCase#admin-token}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>https://localhost:9090</con:endpoint>
+        <con:request>{
+	"login" : "${DataSource#login}5",
+	"password": "${DataSource#login}",
+	"email" : "worker@mail.com",
+	"isAdmin" : "true"
+}</con:request>
+        <con:originalUri>https://localhost/api/v3/users/add</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="c0a88ea4-f4f2-4fff-a70d-694b9c5b1564" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Alex</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="c3fe63c2-d70c-49c7-a4c8-ed5abdc7753d">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>DataSource</dataSourceStep>
+      <targetStep>create user</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Copy of create user" id="23f7f0de-4433-4def-95e0-635d1285ba7b">
+    <con:settings/>
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/add" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Copy of create user" id="93efb33e-0929-480c-b356-ce5d8b0341a4" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://localhost:9090</con:endpoint>
+        <con:request>{
+	"login" : "collaborator",
+	"password": "collaborator",
+	"email" : "collaborator@smartbear.com",
+	"fullName" : "Collaborator",
+	"isAdmin" : "true"
+}</con:request>
+        <con:originalUri>https://localhost/api/v3/users/add</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="6f3511ec-026f-42f4-926c-88fca306da8c" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="d8dde02f-1d50-4dd4-8000-28420c06156d" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Alex</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>admin-token</con:name>
+      <con:value>v3token-eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGUtZGF0ZSI6MTU4NjI2MDY5NDE4NywiY2xpZW50IjowLCJsb2dpbiI6InVzZXJuYW1lLWFkbWluIn0.tQ8mwp_4UyZ44c4IVx2XJStvBXj2EpjdSEIbHgp9BOggFTJMcovvjEocWZh2z_wh1ZXHnA0fjZGVtWISrMjGYQ</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>9ec00d4d-9b0c-460b-a878-42a1f8d0a42f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ac0d7939-820a-46ce-a587-8398c3eaf537</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f3bec004-a462-405a-89e3-e73bff28ac5a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="1680089c-c33f-4d8d-bc67-8a5f1934dd83">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="888846e5-9cd1-45e1-924b-5efe195a4bb9">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>
