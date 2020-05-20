@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="3d9d8c3a-9b8c-46fa-8bb8-d900dd88739e" created="3.0.0-AT" activeEnvironment="local-server" name="VirtServerApi" updated="3.3.0-SNAPSHOT 2020-04-16T06:38:30Z" encryptionMode="Not encrypted" resourceRoot="" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="3d9d8c3a-9b8c-46fa-8bb8-d900dd88739e" created="3.0.0-AT" activeEnvironment="local-server" name="VirtServerApi" updated="3.2.7-AT 2020-05-20T10:00:12Z" encryptionMode="Not encrypted" resourceRoot="" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
   <con:interface xsi:type="con:RestService" id="431f2050-3c01-4953-90be-8f1f7fce1bbf" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:9090" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
