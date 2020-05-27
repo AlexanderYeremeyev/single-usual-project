@@ -85,7 +85,7 @@ testRunner.testCase.setPropertyValue( "loginToken", tokenString)</script>
   </con:testStep>
   <con:testStep type="restrequest" name="getUsersList" id="4c97d212-231f-454b-a03b-86ec95c32e33">
     <con:settings/>
-    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/userslist" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/userslist" methodName="Method 1 dev-name" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="getUsersList" id="c140151d-e691-4811-ae83-17cc57fdf58e" mediaType="application/json" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="${#TestCase#loginToken}" xmlns="http://eviware.com/soapui/config"/></con:setting>

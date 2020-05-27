@@ -28,6 +28,13 @@
             <SLA>200</SLA>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="Simple Contains" id="c5350120-7acb-4bd2-82cf-2d1db59ef967" name="Contains">
+          <con:configuration>
+            <token>assertion contains</token>
+            <ignoreCase>false</ignoreCase>
+            <useRegEx>false</useRegEx>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>

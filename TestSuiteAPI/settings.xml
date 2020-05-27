@@ -8,7 +8,7 @@
   <con:properties>
     <con:property>
       <con:name>login</con:name>
-      <con:value>alex</con:value>
+      <con:value>alex-modify-dev</con:value>
     </con:property>
     <con:property>
       <con:name>password</con:name>

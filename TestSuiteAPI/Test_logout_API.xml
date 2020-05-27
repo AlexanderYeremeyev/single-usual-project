@@ -63,7 +63,7 @@
   </con:testStep>
   <con:testStep type="restrequest" name="getUsersList_API" id="5d4ab34e-ffed-4b15-8036-61980920d7ac">
     <con:settings/>
-    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/userslist" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/userslist" methodName="Method 1 dev-name" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="getUsersList_API" id="c140151d-e691-4811-ae83-17cc57fdf58e" mediaType="application/json" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
@@ -148,7 +148,7 @@
   </con:testStep>
   <con:testStep type="restrequest" name="getUsersList_API FAILED" id="c2794fcf-f992-49df-a2b2-56d8388a520c">
     <con:settings/>
-    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/userslist" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:config service="http://localhost:9090" resourcePath="/api/v3/users/userslist" methodName="Method 1 dev-name" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="getUsersList_API FAILED" id="c140151d-e691-4811-ae83-17cc57fdf58e" mediaType="application/json" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
