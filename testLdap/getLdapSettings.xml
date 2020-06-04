@@ -4,10 +4,10 @@
     <con:setting id="9f24d82a-6db2-43cc-b393-bc28eaa2d159fileName">getLdapSettings</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="restrequest" name="login" id="798b00cf-090f-4c63-a829-e69011d8a613">
+  <con:testStep type="restrequest" name="login-work" id="798b00cf-090f-4c63-a829-e69011d8a613">
     <con:settings/>
     <con:config service="http://localhost:9090" resourcePath="/api/v3/users/login" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="login" id="5e1170e0-dd20-4663-adda-3def7a833fef" mediaType="application/json" postQueryString="false">
+      <con:restRequest name="login-work" id="5e1170e0-dd20-4663-adda-3def7a833fef" mediaType="application/json" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -51,7 +51,7 @@
       <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
         <con:name>token</con:name>
         <con:sourceType>Response</con:sourceType>
-        <con:sourceStep>login</con:sourceStep>
+        <con:sourceStep>login-work</con:sourceStep>
         <con:sourcePath>$['loginTicket']</con:sourcePath>
         <con:targetType>login-token</con:targetType>
         <con:targetStep>#TestCase#</con:targetStep>
