@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="3d9d8c3a-9b8c-46fa-8bb8-d900dd88739e" created="3.0.0-AT" activeEnvironment="local-server" name="VirtServerApi" updated="3.3.0-SNAPSHOT" encryptionMode="Not encrypted" resourceRoot="" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="3d9d8c3a-9b8c-46fa-8bb8-d900dd88739e" created="3.0.0-AT" activeEnvironment="local-server" name="VirtServerApi" updated="3.3.0-SNAPSHOT 2020-05-26T09:43:52Z" encryptionMode="Not encrypted" resourceRoot="" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="3d9d8c3a-9b8c-46fa-8bb8-d900dd88739efileName">VirtServerApi</con:setting>
   </con:settings>
@@ -16,7 +16,7 @@
       <con:name>username-usual</con:name>
     </con:property>
     <con:property>
-      <con:name>password-usual</con:name>
+      <con:name>new property</con:name>
     </con:property>
   </con:properties>
   <con:wssContainer/>
@@ -24,6 +24,10 @@
   <con:jmsConnectionContainer/>
   <con:oAuth2ProfileContainer/>
   <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
   <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
     <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
 // This code is often used for adding custom authentication to SoapUI Pro tests
@@ -70,7 +74,7 @@
       <con:value/>
     </con:property>
     <con:property>
-      <con:name>password-usual</con:name>
+      <con:name>new property</con:name>
       <con:value/>
     </con:property>
     <con:databaseConnectionContainer/>
@@ -93,8 +97,8 @@
       <con:value>username-usual</con:value>
     </con:property>
     <con:property>
-      <con:name>password-usual</con:name>
-      <con:value>password-usual</con:value>
+      <con:name>new property</con:name>
+      <con:value/>
     </con:property>
     <con:databaseConnectionContainer/>
     <con:jmsConnectionContainer/>
@@ -105,7 +109,7 @@
     </con:service>
     <con:property>
       <con:name>username-admin</con:name>
-      <con:value>username-admin</con:value>
+      <con:value>username-admin-remote</con:value>
     </con:property>
     <con:property>
       <con:name>password-admin</con:name>
@@ -116,8 +120,8 @@
       <con:value>username-usual</con:value>
     </con:property>
     <con:property>
-      <con:name>password-usual</con:name>
-      <con:value>password-usual</con:value>
+      <con:name>new property</con:name>
+      <con:value>new remote property</con:value>
     </con:property>
     <con:databaseConnectionContainer/>
     <con:jmsConnectionContainer/>
