@@ -173,7 +173,7 @@ testRunner.testCase.setPropertyValue( "loginToken", tokenString)</script>
   <con:properties>
     <con:property>
       <con:name>loginToken</con:name>
-      <con:value>v3token-eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGUtZGF0ZSI6MTU4MDk3OTY5MDQzNCwibG9naW4iOiJhbGV4YW5kZXIiLCJleHAiOjE1ODA5ODAxNzB9.oPbAVt9hVAM5f0_NwS-DOQxGNzEmMfpSSt_Jrf6tt6JJ-3X0jPn9nFE3rwP_ZBSDOXj03aV4i25WlmU3N8A1Gw</con:value>
+      <con:value>heelo remote token</con:value>
     </con:property>
   </con:properties>
   <con:reportParameters/>
