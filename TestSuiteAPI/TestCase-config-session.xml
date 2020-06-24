@@ -9,7 +9,7 @@
     <con:config service="http://localhost:9090" methodName="Method 1" resourcePath="/api/v3/users/login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="login" id="90227150-491f-44e1-a86e-5bd2fd2ab329" mediaType="application/json" postQueryString="false">
         <con:settings>
-          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Client" value="ServiceV" xmlns="http://eviware.com/soapui/config"/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Client" value="ServiceV remote changes" xmlns="http://eviware.com/soapui/config"/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
         <con:endpoint>https://localhost:9090/</con:endpoint>
