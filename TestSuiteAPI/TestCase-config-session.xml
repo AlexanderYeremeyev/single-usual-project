@@ -54,7 +54,7 @@
         <con:sourceType>Response</con:sourceType>
         <con:sourceStep>login</con:sourceStep>
         <con:sourcePath>$['loginTicket']</con:sourcePath>
-        <con:targetType>loginToken</con:targetType>
+        <con:targetType>loginToken remote</con:targetType>
         <con:targetStep>#TestCase#</con:targetStep>
         <con:targetPath/>
         <con:type>JSONPATH</con:type>
@@ -88,7 +88,7 @@ testRunner.testCase.setPropertyValue( "loginToken", tokenString)</script>
     <con:config service="http://localhost:9090" resourcePath="/api/v3/users/userslist" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="getUsersList" id="c140151d-e691-4811-ae83-17cc57fdf58e" mediaType="application/json" postQueryString="false">
         <con:settings>
-          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="${#TestCase#loginToken}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="${#TestCase#loginToken remote}" xmlns="http://eviware.com/soapui/config"/></con:setting>
         </con:settings>
         <con:endpoint>https://localhost:9090</con:endpoint>
         <con:request/>
@@ -172,7 +172,7 @@ testRunner.testCase.setPropertyValue( "loginToken", tokenString)</script>
   </con:testStep>
   <con:properties>
     <con:property>
-      <con:name>loginToken</con:name>
+      <con:name>loginToken remote</con:name>
       <con:value>heelo remote token</con:value>
     </con:property>
   </con:properties>
