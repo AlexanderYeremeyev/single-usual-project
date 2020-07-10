@@ -13,7 +13,7 @@
         </con:settings>
         <con:endpoint>https://localhost:9090</con:endpoint>
         <con:request>{
-	"login": "${#Project#username-admin}",
+	"login": "${#Project#username-admin-remote-name}",
 	"password" : "${#Project#password-admin}"
 }</con:request>
         <con:originalUri>https://localhost/api/v3/users/login</con:originalUri>

@@ -7,7 +7,7 @@
   <con:requirements/>
   <con:properties>
     <con:property>
-      <con:name>username-admin</con:name>
+      <con:name>username-admin-remote-name</con:name>
     </con:property>
     <con:property>
       <con:name>password-admin</con:name>
@@ -58,7 +58,7 @@
       <con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">https://localhost:9090</con:endpoint>
     </con:service>
     <con:property>
-      <con:name>username-admin</con:name>
+      <con:name>username-admin-remote-name</con:name>
       <con:value/>
     </con:property>
     <con:property>
@@ -81,7 +81,7 @@
       <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://40.117.32.138:9090</con:endpoint>
     </con:service>
     <con:property>
-      <con:name>username-admin</con:name>
+      <con:name>username-admin-remote-name</con:name>
       <con:value>username-admin</con:value>
     </con:property>
     <con:property>
@@ -104,7 +104,7 @@
       <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://localhost:9090</con:endpoint>
     </con:service>
     <con:property>
-      <con:name>username-admin</con:name>
+      <con:name>username-admin-remote-name</con:name>
       <con:value>username-admin-remote</con:value>
     </con:property>
     <con:property>
